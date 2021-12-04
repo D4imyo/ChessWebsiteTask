@@ -1,0 +1,41 @@
+.layout-board
+
+    width:90vh
+    height: 90vh
+
+
+.main-board 
+    background-image: url('https://images.chesscomfiles.com/chess-themes/boards/green/150.png')
+    background-size: 100%
+    width:100%
+    height: 100%
+    position: relative
+    background-repeat: no-repeat
+
+.peace
+    position: absolute
+    width:12.5%
+    height:12.5%
+    background-size: 100%
+    background-repeat: no-repeat
+
+$colors: b, w
+$pieces: r, n, b, q, k, p
+
+@each $color in $colors
+    @each $peace in $pieces
+        .#{$color}-#{$peace}
+            background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/#{$color}#{$peace}.png')
+.dot
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Chess_xot45.svg/600px-Chess_xot45.svg.png')
+@for $i from 1 through 8 
+
+  .square-#{$i}8 
+    transform: translate((100% * ($i - 1)))
+
+@for $i from 8 through 1
+    @for $x from 1 through 8
+        .square-#{$x}#{$i}
+            transform: translate((100% * ($x - 1)), (100% * ($i - 1)))
+
+    
